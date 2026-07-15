@@ -1,0 +1,44 @@
+---
+layout: base.njk
+permalink: /videos/
+pageTitle: Recordings — Virasat
+---
+
+<section class="page-hero">
+  <div class="section-label">Watch</div>
+  <h2 class="section-title">Event <em>recordings</em></h2>
+  <p style="font-family: 'Lora', serif; font-style: italic; font-size: 1.05rem; color: var(--ivory-dim); max-width: 560px; line-height: 1.75;">
+    Full recordings and highlights from Virasat productions — theatre, concerts, and community gatherings. Subscribe on <a href="{{ site.youtube_url }}" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: none;">YouTube</a> to never miss a release.
+  </p>
+</section>
+
+<section style="padding-top: 1rem;">
+  <div class="videos-grid">
+    {% for video in collections.videos %}
+    <div class="video-card">
+      <div class="video-embed" data-video-id="{{ video.data.youtube_id }}" onclick="playVideo(this)">
+        <img src="https://i.ytimg.com/vi/{{ video.data.youtube_id }}/hqdefault.jpg" alt="{{ video.data.title }}" loading="lazy" />
+        <div class="video-play"></div>
+      </div>
+      <div class="video-meta">
+        <div class="video-date">{{ video.data.date | prettyDate }}</div>
+        <div class="video-title">{{ video.data.title }}</div>
+        {% if video.data.description %}<p class="video-desc">{{ video.data.description }}</p>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if collections.videos.length == 0 %}
+  <p style="color: var(--text-muted); font-size: 0.95rem;">Recordings coming soon — check back after our next event.</p>
+  {% endif %}
+</section>
+
+<script>
+  function playVideo(el) {
+    var id = el.getAttribute('data-video-id');
+    el.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    el.onclick = null;
+    el.style.cursor = 'default';
+  }
+</script>

@@ -1,0 +1,136 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Colleagues save drafts first, then publish — drafts appear in the "Workflow" tab
+publish_mode: editorial_workflow
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+site_url: https://virasatto.com
+display_url: https://virasatto.com
+logo_url: https://virasatto.com/images/logo.jpg
+
+collections:
+  # ─────────────── SITE COPY ───────────────
+  - name: "settings"
+    label: "Site Copy & Settings"
+    files:
+      - name: "site"
+        label: "Homepage & Site-wide Copy"
+        file: "_data/site.json"
+        fields:
+          - { label: "Browser Tab Title", name: "title", widget: "string" }
+          - { label: "Location Badge (hero)", name: "location_badge", widget: "string" }
+          - { label: "Hero Eyebrow Line", name: "hero_eyebrow", widget: "string" }
+          - { label: "Hero Headline — Line 1", name: "hero_headline_line1", widget: "string" }
+          - { label: "Hero Headline — Line 2", name: "hero_headline_line2", widget: "string" }
+          - { label: "Hero Urdu Text", name: "hero_urdu", widget: "string" }
+          - { label: "Hero Tagline", name: "hero_tagline", widget: "text" }
+          - { label: "Slogan Parts", name: "slogan_parts", widget: "list", field: { label: "Word", name: "word", widget: "string" } }
+          - { label: "About Title — Line 1", name: "about_title_line1", widget: "string" }
+          - { label: "About Title — Line 2 (gold italic)", name: "about_title_line2", widget: "string" }
+          - { label: "About — Paragraph 1", name: "about_para1", widget: "text" }
+          - { label: "About — Paragraph 2", name: "about_para2", widget: "text" }
+          - { label: "About — Pull Quote", name: "about_quote", widget: "text" }
+          - { label: "Three Principles", name: "principles", widget: "list", field: { label: "Principle", name: "principle", widget: "string" } }
+          - { label: "Mission Statement", name: "mission", widget: "text" }
+          - { label: "Contact Email", name: "contact_email", widget: "string" }
+          - { label: "Instagram URL", name: "instagram_url", widget: "string" }
+          - { label: "YouTube URL", name: "youtube_url", widget: "string" }
+          - { label: "Universe (tickets) URL", name: "universe_url", widget: "string" }
+          - label: "Stats Strip"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Hover Hint", name: "hint", widget: "string" }
+              - { label: "Link (e.g. #events)", name: "link", widget: "string" }
+          - { label: "Mailing List — Headline", name: "mailing_headline", widget: "string" }
+          - { label: "Mailing List — Subtext", name: "mailing_sub", widget: "text" }
+          - { label: "Partner Section — Headline", name: "partner_headline", widget: "string" }
+          - { label: "Partner Section — Subtext", name: "partner_sub", widget: "text" }
+
+      - name: "team"
+        label: "Team Members"
+        file: "_data/team.json"
+        fields:
+          - label: "Team Members"
+            name: "members"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Bio", name: "bio", widget: "text" }
+              - { label: "Photo", name: "photo", widget: "image" }
+
+      - name: "partners"
+        label: "Partners"
+        file: "_data/partners.json"
+        fields:
+          - label: "Partner Organizations"
+            name: "list"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+
+      - name: "programs"
+        label: "Programs"
+        file: "_data/programs.json"
+        fields:
+          - label: "Programs"
+            name: "list"
+            widget: "list"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Tags Label", name: "tags_label", widget: "string" }
+              - { label: "Tags", name: "tags", widget: "list", field: { label: "Tag", name: "tag", widget: "string" } }
+
+  # ─────────────── EVENTS ───────────────
+  - name: "events"
+    label: "Events"
+    label_singular: "Event"
+    folder: "content/events"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Event Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Category", name: "category", widget: "select", options: ["Theatre", "Concert", "Intimate Concert", "Cultural Event", "Community", "Partnership"] }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Universe Ticket Link (optional)", name: "universe_link", widget: "string", required: false }
+      - { label: "Notes (not shown on site)", name: "body", widget: "markdown", required: false }
+
+  # ─────────────── VIDEOS ───────────────
+  - name: "videos"
+    label: "Videos / Recordings"
+    label_singular: "Video"
+    folder: "content/videos"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Video Title", name: "title", widget: "string" }
+      - { label: "YouTube Video ID", name: "youtube_id", widget: "string", hint: "The part after v= in the YouTube URL. E.g. for youtube.com/watch?v=dQw4w9WgXcQ the ID is dQw4w9WgXcQ" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: false, hint: "Only one video should be featured at a time — it appears in the big video block on the homepage" }
+
+  # ─────────────── ARTISTS ───────────────
+  - name: "artists"
+    label: "Artists"
+    label_singular: "Artist"
+    folder: "content/artists"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role / Discipline", name: "role", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "text", required: false }
+      - { label: "Photo", name: "photo", widget: "image", required: false }
+      - { label: "Display Order", name: "order", widget: "number", default: 99, hint: "Lower numbers appear first" }

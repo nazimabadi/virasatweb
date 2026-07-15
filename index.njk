@@ -1,0 +1,311 @@
+---
+layout: base.njk
+permalink: /
+---
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-photo">
+    <img src="/images/about/hero.jpg" alt="Virasat performance" />
+    <div class="hero-photo-overlay"></div>
+  </div>
+  <div class="hero-ring"></div>
+  <div class="hero-content">
+    <div class="hero-location">📍 {{ site.location_badge }}</div>
+    <div class="hero-label">{{ site.hero_eyebrow }}</div>
+    <h1>{{ site.hero_headline_line1 }}<br>finds its <em>voice</em></h1>
+    <div class="hero-urdu">{{ site.hero_urdu }}</div>
+    <p class="hero-tagline">{{ site.hero_tagline }}</p>
+    <div class="hero-slogan">
+      {%- for part in site.slogan_parts -%}
+        {{ part }}{% if not loop.last %} <span>·</span> {% endif %}
+      {%- endfor -%}
+    </div>
+    <div class="hero-actions">
+      <a href="#events" class="btn-primary">Explore Our Work</a>
+      <a href="#connect" class="btn-ghost">Partner With Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  {% for stat in site.stats %}
+  <a class="stat-item stat-link" href="{{ stat.link }}">
+    <div class="stat-number">{{ stat.number }}</div>
+    <div class="stat-label">{{ stat.label }}</div>
+    <div class="stat-hint">{{ stat.hint }}</div>
+  </a>
+  {% endfor %}
+</div>
+
+<!-- FEATURED VIDEO -->
+{% set fv = collections.videos | featuredFirst %}
+{% if fv %}
+<section class="featured-video" id="featured-video">
+  <div class="fv-grid">
+    <div>
+      <div class="section-label">Watch</div>
+      <h2 class="section-title">Featured <em>recording</em></h2>
+      <div class="fv-date">{{ fv.data.date | prettyDate }}</div>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--ivory); margin-bottom: 1rem;">{{ fv.data.title }}</h3>
+      <p class="fv-desc">{{ fv.data.description }}</p>
+      <a href="/videos/" class="btn-ghost">See all recordings →</a>
+    </div>
+    <div class="fv-player" data-video-id="{{ fv.data.youtube_id }}" onclick="playVideo(this)">
+      <img src="https://i.ytimg.com/vi/{{ fv.data.youtube_id }}/maxresdefault.jpg" alt="{{ fv.data.title }}" onerror="this.src='https://i.ytimg.com/vi/{{ fv.data.youtube_id }}/hqdefault.jpg'" />
+      <div class="fv-play-btn"></div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">{{ site.about_title_line1 }} <em>{{ site.about_title_line2 }}</em></h2>
+      <p class="about-body">{{ site.about_para1 }}</p>
+      <p class="about-body">{{ site.about_para2 }}</p>
+      <div class="about-principles">
+        {% for principle in site.principles %}
+        <div class="principle">
+          <span class="principle-num">0{{ loop.index }}</span>
+          <span class="principle-text">{{ principle }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="about-right">
+      <blockquote class="about-quote">
+        "{{ site.about_quote }}"
+      </blockquote>
+      <div class="about-image-grid">
+        <div class="about-img">
+          <img src="/images/about/hero.jpg" alt="Virasat performance" />
+        </div>
+        <div class="about-img ratio-43">
+          <img src="/images/about/community.jpg" alt="Virasat community" />
+        </div>
+        <div class="about-img ratio-43">
+          <img src="/images/about/artists.jpg" alt="Virasat artists" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECTIONS CTA -->
+<a href="/connections/" class="connections-cta">
+  <div class="cta-left">
+    <div class="cta-eyebrow">The Virasat Universe</div>
+    <div class="cta-headline">See how Virasat<br>connects the dots <em>→</em></div>
+  </div>
+  <div class="cta-right">
+    <div class="cta-web">
+      <svg class="cta-lines" viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="110" y1="80" x2="38" y2="24"  stroke="#c9973a" stroke-width="0.8" opacity="0.5"/>
+        <line x1="110" y1="80" x2="182" y2="24" stroke="#9a3545" stroke-width="0.8" opacity="0.5"/>
+        <line x1="110" y1="80" x2="38" y2="136" stroke="#3a6a8a" stroke-width="0.8" opacity="0.5"/>
+        <line x1="110" y1="80" x2="182" y2="136" stroke="#1a5c45" stroke-width="0.8" opacity="0.5"/>
+        <line x1="110" y1="80" x2="10"  y2="80" stroke="#c9973a" stroke-width="0.8" opacity="0.3"/>
+        <line x1="110" y1="80" x2="210" y2="80" stroke="#b85c3a" stroke-width="0.8" opacity="0.3"/>
+      </svg>
+      <div class="cta-node cta-node-centre">وراثت</div>
+      <div class="cta-node cta-node-tl">Heritage</div>
+      <div class="cta-node cta-node-tr">Diaspora</div>
+      <div class="cta-node cta-node-bl">Artists</div>
+      <div class="cta-node cta-node-br">Community</div>
+    </div>
+  </div>
+</a>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="section-label">What We Do</div>
+  <h2 class="section-title">Our <em>programs</em></h2>
+  <div class="programs-grid">
+    {% for program in programs.list %}
+    <div class="program-card">
+      <span class="program-icon">{{ program.icon }}</span>
+      <div class="program-title">{{ program.title }}</div>
+      <p class="program-desc">{{ program.description }}</p>
+      <div class="program-events">
+        <div class="program-events-label">{{ program.tags_label }}</div>
+        {% for tag in program.tags %}<span class="event-tag">{{ tag }}</span>{% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="events" id="events">
+  <div class="events-header">
+    <div>
+      <div class="section-label">Past Events</div>
+      <h2 class="section-title">Our <em>events</em></h2>
+    </div>
+    <a href="{{ site.universe_url }}" target="_blank" rel="noopener" class="btn-ghost">Upcoming tickets on Universe →</a>
+  </div>
+  <div class="events-thumbs">
+    {% for event in collections.events %}
+    <div class="event-thumb">
+      <div class="event-thumb-img">
+        <img src="{{ event.data.photo }}" alt="{{ event.data.title }}" loading="lazy" />
+        <div class="event-thumb-overlay">
+          <div class="event-thumb-cat">{{ event.data.category }}</div>
+          <div class="event-thumb-title">{{ event.data.title }}</div>
+          <div class="event-thumb-date">{{ event.data.date | prettyDate }}</div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ARTISTS (renders only when artist entries exist in CMS) -->
+{% if collections.artists.length > 0 %}
+<section class="artists" id="artists">
+  <div class="section-label">Our Community</div>
+  <h2 class="section-title">The <em>artists</em></h2>
+  <div class="artists-grid">
+    {% for artist in collections.artists %}
+    <div class="artist-card">
+      {% if artist.data.photo %}
+      <div class="artist-photo"><img src="{{ artist.data.photo }}" alt="{{ artist.data.name }}" loading="lazy" /></div>
+      {% endif %}
+      <div class="artist-name">{{ artist.data.name }}</div>
+      <div class="artist-role">{{ artist.data.role }}</div>
+      {% if artist.data.bio %}<p class="artist-bio">{{ artist.data.bio }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- MAILING + PARTNER -->
+<section class="mailing" id="mailing">
+  <div class="mailing-dual">
+
+    <div class="mailing-col mailing-col-left">
+      <div class="section-label" style="color: rgba(245,239,228,0.5);">Stay Connected</div>
+      <h2 class="mailing-title">Join the<br><em style="color: var(--gold-light); font-style: italic;">community</em></h2>
+      <p class="mailing-sub">{{ site.mailing_sub }}</p>
+      <div class="mailing-stats-row">
+        <div class="mailing-stat"><span>19</span> productions</div>
+        <div class="mailing-stat"><span>10K</span> community</div>
+        <div class="mailing-stat"><span>7</span> partners</div>
+      </div>
+      <form class="mailing-form" action="mailto:{{ site.contact_email }}" method="get" onsubmit="return mailtoSignup(this)">
+        <select class="path-select" name="path">
+          <option value="" disabled selected>I am a… (choose your path)</option>
+          <option>🎭 Artist — I want to collaborate</option>
+          <option>🤝 Sponsor / Funder — I want to support</option>
+          <option>🌟 Patron — I love Virasat events</option>
+          <option>🔍 Explorer — just discovering</option>
+        </select>
+        <div class="form-row">
+          <input class="form-input" type="text" name="name" placeholder="Your name" />
+        </div>
+        <div class="form-row">
+          <input class="form-input" type="email" name="email" placeholder="Your email address" />
+          <button class="form-submit" type="submit">Subscribe</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="mailing-divider"></div>
+
+    <div class="mailing-col mailing-col-right">
+      <div class="section-label" style="color: rgba(201,151,58,0.6);">Partner With Us</div>
+      <h2 class="mailing-title" style="color: var(--ivory);">Invest in<br><em style="color: var(--gold-light); font-style: italic;">South Asian arts</em></h2>
+      <p class="mailing-sub" style="color: rgba(245,239,228,0.65);">{{ site.partner_sub }}</p>
+      <a href="mailto:{{ site.contact_email }}" class="btn-primary" style="display:inline-block; margin-top: 2rem; text-decoration: none;">Get in Touch →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="section-label">The People</div>
+  <h2 class="section-title">Our <em>team</em></h2>
+  <div class="team-grid">
+    {% for member in team.members %}
+    <div class="team-card">
+      <div class="team-photo"><img src="{{ member.photo }}" alt="{{ member.name }}" loading="lazy" /></div>
+      <div class="team-name">{{ member.name }}</div>
+      <div class="team-role">{{ member.role }}</div>
+      <p class="team-bio">{{ member.bio }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<div class="partners" id="partners">
+  <div class="partners-inner">
+    <div class="partners-label">Community Partners &amp; Venues</div>
+    <div class="partners-row">
+      {% for partner in partners.list %}
+      <span class="partner-name">{{ partner.name }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- CONNECT -->
+<section class="connect" id="connect">
+  <div class="connect-bg"></div>
+  <div class="connect-content">
+    <div class="section-label" style="justify-content: center; margin-bottom: 1rem;">Get Involved</div>
+    <h2 class="connect-title">How would you like<br>to <em>connect</em>?</h2>
+    <p class="connect-sub">Whether you're an artist wanting to collaborate, a funder wanting to invest, or a patron wanting to be part of the community — there's a place for you here.</p>
+    <div class="connect-paths">
+      <a href="mailto:{{ site.contact_email }}" class="connect-path">
+        <span class="path-emoji">🎭</span>
+        <div class="path-title">I'm an Artist</div>
+        <p class="path-desc">Submit an expression of interest to collaborate with Virasat</p>
+      </a>
+      <a href="mailto:{{ site.contact_email }}" class="connect-path">
+        <span class="path-emoji">🤝</span>
+        <div class="path-title">I'm a Sponsor / Funder</div>
+        <p class="path-desc">Learn about partnership opportunities</p>
+      </a>
+      <a href="mailto:{{ site.contact_email }}" class="connect-path">
+        <span class="path-emoji">🌟</span>
+        <div class="path-title">I'm a Patron</div>
+        <p class="path-desc">Join the community and never miss an event</p>
+      </a>
+      <a href="mailto:{{ site.contact_email }}" class="connect-path">
+        <span class="path-emoji">🔍</span>
+        <div class="path-title">Just Exploring</div>
+        <p class="path-desc">Say hello, ask a question, or share your story</p>
+      </a>
+    </div>
+    <p class="connect-contact">
+      Or reach us directly at <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+    </p>
+  </div>
+</section>
+
+<script>
+  function playVideo(el) {
+    var id = el.getAttribute('data-video-id');
+    el.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    el.onclick = null;
+    el.style.cursor = 'default';
+  }
+  function mailtoSignup(form) {
+    var path = form.path.value || '';
+    var name = form.name.value || '';
+    var email = form.email.value || '';
+    var subject = encodeURIComponent('Mailing list signup — ' + name);
+    var body = encodeURIComponent('Path: ' + path + '\nName: ' + name + '\nEmail: ' + email);
+    window.location.href = 'mailto:{{ site.contact_email }}?subject=' + subject + '&body=' + body;
+    return false;
+  }
+</script>

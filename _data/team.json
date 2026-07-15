@@ -1,0 +1,16 @@
+{
+  "members": [
+    {
+      "name": "Mahnoor Khan",
+      "role": "Co-Founder & Artistic Director",
+      "bio": "Actor, designer, researcher, producer. Born Lahore, based in Toronto. Spearheads creative direction with a background spanning theatre, film, policy, and community arts.",
+      "photo": "/images/team/mahnoor.jpg"
+    },
+    {
+      "name": "Khayyam Lasi",
+      "role": "Co-Founder & Community Lead",
+      "bio": "A corporate professional with an artist's heart. Leads artist relationships and community engagement. Dedicates his spare moments to crafting poetry.",
+      "photo": "/images/team/khayyam.jpg"
+    }
+  ]
+}

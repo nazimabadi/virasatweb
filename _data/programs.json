@@ -1,0 +1,25 @@
+{
+  "list": [
+    {
+      "icon": "🎭",
+      "title": "Theatre",
+      "description": "Flagship productions fusing live music, movement, narrative, and projection. Our theatre work explores migration, identity, belonging, and spirituality — often selling out within hours.",
+      "tags_label": "Recent Works",
+      "tags": ["Humari Kahani 3.0", "New Diaspora Work"]
+    },
+    {
+      "icon": "🎵",
+      "title": "Intimate Concerts",
+      "description": "Acoustic, storytelling-driven community gatherings in intimate downtown spaces. Deeply personal live sessions designed to restore connection — small rooms, big feelings.",
+      "tags_label": "Upcoming",
+      "tags": ["5 Shows · 2025", "Downtown Toronto"]
+    },
+    {
+      "icon": "🌐",
+      "title": "Digital Storytelling",
+      "description": "Original films, cultural mapping, and digital content that create an exchange between the diaspora and the homeland. Where art becomes documentation and documentation becomes art.",
+      "tags_label": "Initiatives",
+      "tags": ["Cultural Mapping", "Workshops"]
+    }
+  ]
+}

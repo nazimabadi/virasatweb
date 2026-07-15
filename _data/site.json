@@ -1,0 +1,32 @@
+{
+  "title": "Virasat — Preserve. Evolve. Represent.",
+  "location_badge": "Toronto, Ontario",
+  "hero_eyebrow": "South Asian Arts Collective · Est. 2020",
+  "hero_headline_line1": "Where heritage",
+  "hero_headline_line2": "finds its voice",
+  "hero_urdu": "وراثت",
+  "hero_tagline": "A multidisciplinary arts collective rooted in South Asian tradition — creating original work that makes the diaspora feel at home.",
+  "slogan_parts": ["Preserve", "Evolve", "Represent"],
+  "about_title_line1": "Art that builds",
+  "about_title_line2": "community",
+  "about_para1": "Virasat — meaning \"heritage\" — was founded in 2020 to celebrate and evolve South Asian arts in Canada. We create multidisciplinary performances blending theatre, music, dance, storytelling, and new media that reflect the lived experiences of the South Asian diaspora.",
+  "about_para2": "We are rooted in the belief that art is infrastructure — that it builds memory, solidarity, and belonging where systems fall short. Our work is for the diaspora, by the diaspora: a space to feel fully at home.",
+  "about_quote": "Virasat is not just about showcasing art — it's about honouring our past, weaving connections, and creating a legacy of cultural appreciation that transcends borders and generations.",
+  "principles": ["Preserve the past", "Evolve the present", "Represent the future"],
+  "mission": "To create original, collaborative, multidisciplinary art that reflects the complexity, diversity, and beauty of the South Asian diaspora in Canada.",
+  "contact_email": "info@virasatto.com",
+  "instagram_url": "https://instagram.com/virasatto",
+  "youtube_url": "https://youtube.com",
+  "universe_url": "https://universe.com",
+  "stats": [
+    { "number": "19", "label": "Original Productions", "hint": "See all events →", "link": "#events" },
+    { "number": "35+", "label": "Artists Supported", "hint": "Meet the artists →", "link": "#events" },
+    { "number": "1,400+", "label": "In-Person Attendees", "hint": "Browse past events →", "link": "#events" },
+    { "number": "7", "label": "Community Partners", "hint": "See our partners →", "link": "#partners" },
+    { "number": "10K", "label": "Digital Community", "hint": "Join us →", "link": "#mailing" }
+  ],
+  "mailing_headline": "Join the community",
+  "mailing_sub": "Events sell out fast. Be the first to hear about shows, artist announcements, and community gatherings. A few emails per season — nothing more.",
+  "partner_headline": "Invest in South Asian arts",
+  "partner_sub": "Virasat offers partnership opportunities for organisations, corporations, and arts funders who believe in the power of cross-cultural storytelling rooted in Toronto."
+}
