@@ -50,7 +50,7 @@ permalink: /
       <h2 class="section-title">Featured <em>recording</em></h2>
       <div class="fv-date">{{ fv.data.date | prettyDate }}</div>
       <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--ivory); margin-bottom: 1rem;">{{ fv.data.title }}</h3>
-      <p class="fv-desc">{{ fv.data.description }}</p>
+      <div class="fv-desc">{{ fv.data.description | markdown | safe }}</div>
       <a href="/videos/" class="btn-ghost">See all recordings →</a>
     </div>
     <div class="fv-player" data-video-id="{{ fv.data.youtube_id }}" onclick="playVideo(this)">

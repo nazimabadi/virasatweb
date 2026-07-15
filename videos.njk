@@ -23,7 +23,7 @@ pageTitle: Recordings — Virasat
       <div class="video-meta">
         <div class="video-date">{{ video.data.date | prettyDate }}</div>
         <div class="video-title">{{ video.data.title }}</div>
-        {% if video.data.description %}<p class="video-desc">{{ video.data.description }}</p>{% endif %}
+        {% if video.data.description %}<div class="video-desc">{{ video.data.description | markdown | safe }}</div>{% endif %}
       </div>
     </div>
     {% endfor %}

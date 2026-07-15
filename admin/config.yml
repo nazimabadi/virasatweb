@@ -118,7 +118,7 @@ collections:
       - { label: "Video Title", name: "title", widget: "string" }
       - { label: "YouTube Video ID", name: "youtube_id", widget: "string", hint: "The part after v= in the YouTube URL. E.g. for youtube.com/watch?v=dQw4w9WgXcQ the ID is dQw4w9WgXcQ" }
       - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
-      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Description", name: "description", widget: "markdown", required: false, hint: "You can use bold, italic, and line breaks here" }
       - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: false, hint: "Only one video should be featured at a time — it appears in the big video block on the homepage" }
 
   # ─────────────── ARTISTS ───────────────

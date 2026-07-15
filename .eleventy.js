@@ -1,4 +1,13 @@
+const markdownIt = require("markdown-it");
+const md = new markdownIt({ html: false, breaks: true, linkify: false });
+
 module.exports = function (eleventyConfig) {
+  // Render markdown in content fields (e.g. video descriptions)
+  eleventyConfig.addFilter("markdown", (content) => {
+    if (!content) return "";
+    return md.render(String(content));
+  });
+
   // Static assets copied straight to output
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("admin");
