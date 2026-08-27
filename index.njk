@@ -3,6 +3,79 @@ layout: base.njk
 permalink: /
 ---
 
+<!-- ANNOUNCEMENT BANNER -->
+<style>
+  .announce-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: var(--gold);
+    padding: 0.7rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .announce-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .announce-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(13,11,9,0.6);
+    font-weight: 500;
+  }
+  .announce-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--black);
+    letter-spacing: 0.05em;
+  }
+  .announce-details {
+    font-size: 0.78rem;
+    color: rgba(13,11,9,0.75);
+    letter-spacing: 0.04em;
+  }
+  .announce-cta {
+    background: var(--black);
+    color: var(--gold);
+    text-decoration: none;
+    padding: 0.5rem 1.4rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'Source Sans 3', sans-serif;
+    white-space: nowrap;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .announce-cta:hover { background: #1a1612; }
+  nav { top: 42px !important; }
+  @media (max-width: 600px) {
+    .announce-bar { padding: 0.6rem 1rem; gap: 0.75rem; }
+    .announce-details { display: none; }
+    nav { top: 56px !important; }
+  }
+</style>
+
+<div class="announce-bar">
+  <div class="announce-left">
+    <span class="announce-label">Now on sale</span>
+    <span class="announce-title">Humari Kahani</span>
+    <span class="announce-details">Sep 3 &amp; 4, 2026 &nbsp;·&nbsp; The Great Hall, Toronto</span>
+  </div>
+  <a href="https://www.universe.com/events/humari-kahani-the-last-show-tickets-Q8GPW5"
+     target="_blank" rel="noopener" class="announce-cta">Get Tickets →</a>
+</div>
+
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
