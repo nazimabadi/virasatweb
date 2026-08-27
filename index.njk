@@ -113,6 +113,41 @@ permalink: /
   {% endfor %}
 </div>
 
+<!-- FEATURED EVENT -->
+<section class="featured-video" id="featured-event">
+  <div class="fv-grid">
+    <div>
+      <div class="section-label">Upcoming</div>
+      <h2 class="section-title">Featured <em>event</em></h2>
+      <div class="fv-date">Sep 3 &amp; 4, 2026 &nbsp;·&nbsp; Two shows</div>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--ivory); margin-bottom: 1rem;">Humari Kahani</h3>
+      <div class="fv-desc">Our Story — the annual diasporic storytelling show. Music, dance, spoken word, and community memory on one stage. Two nights only at The Great Hall.</div>
+      <div style="
+        display: flex; flex-direction: column; gap: 0.6rem;
+        margin: 1.5rem 0;
+        padding: 1.25rem 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      ">
+        <div style="display: flex; gap: 1.25rem; align-items: baseline;">
+          <span style="font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); min-width: 55px;">Where</span>
+          <span style="font-size: 0.9rem; color: var(--ivory-dim);">The Great Hall, 1087 Queen St W, Toronto</span>
+        </div>
+        <div style="display: flex; gap: 1.25rem; align-items: baseline;">
+          <span style="font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); min-width: 55px;">Tickets</span>
+          <span style="font-size: 0.9rem; color: var(--gold);">Selling fast — limited seats</span>
+        </div>
+      </div>
+      <a href="https://www.universe.com/events/humari-kahani-the-last-show-tickets-Q8GPW5"
+         target="_blank" rel="noopener" class="btn-primary"
+         style="text-decoration: none; display: inline-block;">Get Tickets →</a>
+    </div>
+    <div class="fv-player" style="cursor: default;" onclick="void(0)">
+      <img src="/images/events/hk-poster.jpg" alt="Humari Kahani — Sept 3 & 4 2026" style="object-position: center top;" />
+    </div>
+  </div>
+</section>
+
 <!-- FEATURED VIDEO -->
 {% set fv = collections.videos | featuredFirst %}
 {% if fv %}
